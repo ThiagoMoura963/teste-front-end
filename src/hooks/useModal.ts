@@ -1,30 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Product } from "../types/product";
-import { productService } from "../services/product-service";
 
-export function useProducts() {
-  const [products, setProducts] = useState<Product[]>();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<null | string>(null);
+export function useModal() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedProducts, setSelectedProduct] = useState<Product | null>(null);
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const products = await productService.getAll();
-        setProducts(products);
-      } catch (error) {
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError("Erro desconhecido");
-        }
-      } finally {
-        setLoading(false);
-      }
-    }
+  function openModal(product: Product) {
+    setSelectedProduct(product);
+    setIsOpen(true);
+  }
 
-    fetchProducts();
-  }, []);
+  function closeModal() {
+    setSelectedProduct(null);
+    setIsOpen(false);
+  }
 
-  return { products, loading, error };
+  return { isOpen, selectedProducts, openModal, closeModal };
 }
