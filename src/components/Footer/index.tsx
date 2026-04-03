@@ -32,7 +32,6 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        {/* Coluna 1: Info e Social */}
         <div className="footer__info">
           <img
             src={logoEconverse}

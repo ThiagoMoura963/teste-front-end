@@ -1,10 +1,10 @@
-// import { useState } from "react";
 import { useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
 import { ProductCard } from "../ProductCard";
-// import type { Product } from "../../types/product";
+import { ProductModal } from "../ProductModal";
 
 import "./style.scss";
+import { useModal } from "../../hooks/useModal";
 
 type TabCategory =
   | "Celular"
@@ -25,6 +25,7 @@ export const ProductGrid = () => {
   ];
 
   const { products, loading, error } = useProducts();
+  const { selectedProducts, openModal, closeModal } = useModal();
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const itemsPerPage = 4;
@@ -91,7 +92,7 @@ export const ProductGrid = () => {
               <ProductCard
                 key={product.productName}
                 product={product}
-                openModal={() => {}}
+                openModal={openModal}
               />
             ))}
           </div>
@@ -104,6 +105,8 @@ export const ProductGrid = () => {
           />
         </div>
       </div>
+
+      <ProductModal product={selectedProducts} onClose={closeModal} />
     </section>
   );
 };
