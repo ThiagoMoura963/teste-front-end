@@ -5,12 +5,8 @@
   width: 100%;
 
   &__container {
-    max-width: 1364px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    @include container($padding: 20px);
+    @include flex-between;
   }
 
   &__top-bar {
@@ -23,15 +19,15 @@
   }
 
   &__top-item {
-    display: flex;
-    align-items: center;
+    @include flex-center;
     gap: 8px;
-    @include typography(12px, 500, #9f9f9f);
+    @include typography(12px, 500, $color-text-muted);
 
     span {
-      color: #3442b5;
+      color: $color-brand-blue;
       font-weight: 600;
     }
+
     img {
       width: 20px;
       height: 20px;
@@ -42,9 +38,11 @@
     padding: 12px 0;
   }
 
-  &__logo img {
-    width: 139px;
-    height: 41px;
+  &__logo {
+    img {
+      width: 139px;
+      height: 41px;
+    }
   }
 
   &__search {
@@ -56,16 +54,18 @@
       width: 100%;
       height: 100%;
       border: none;
-      background: #f6f5f2;
+      background: $color-bg-input;
       border-radius: 10px;
       padding: 0 50px 0 20px;
-      @include typography(14px, 500, #3f3f40);
+      @include typography(14px, 500, $color-text-main);
+      transition: outline $transition-default;
 
       &::placeholder {
-        color: #9f9f9f;
+        color: $color-text-muted;
       }
+
       &:focus {
-        outline: 1px solid #3442b5;
+        outline: 1px solid $color-brand-blue;
       }
     }
 
@@ -76,6 +76,7 @@
       transform: translateY(-50%);
       width: 28px;
       height: 28px;
+      pointer-events: none;
     }
   }
 
@@ -88,7 +89,7 @@
       height: 24px;
       cursor: pointer;
       opacity: 0.8;
-      transition: opacity 0.2s;
+      transition: opacity $transition-default;
 
       &:hover {
         opacity: 1;

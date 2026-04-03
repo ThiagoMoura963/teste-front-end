@@ -2,14 +2,12 @@
 @use "../../styles/mixins" as *;
 
 .navbar {
-  width: 1280px;
-  margin: 0 auto;
-  background: #ffffff;
-  box-shadow: 0px 8px 16px 0px rgba(57, 48, 19, 0.12);
+  @include container(1280px);
+  @include flex-center;
   height: 40px;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #f0f0f0;
+  background: $color-white;
+  box-shadow: 0px 8px 16px 0px rgba(57, 48, 19, 0.12);
+  border-top: 1px solid $color-border-light;
 
   &__container {
     width: 100%;
@@ -17,26 +15,20 @@
   }
 
   &__list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    @include flex-between;
+    width: 100%;
   }
 
   &__item {
     a {
-      @include typography(12px, 600, #9f9f9f);
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      display: flex;
-      align-items: center;
+      @include typography(12px, 600, $color-text-muted);
+      @include flex-center;
       gap: 8px;
+      text-transform: uppercase;
+      transition: color $transition-default;
 
       &:hover {
-        color: #3442b5;
+        color: $color-brand-blue;
       }
     }
 
@@ -48,8 +40,7 @@
 
     &--with-icon {
       a {
-        display: flex;
-        align-items: center;
+        gap: 10px;
       }
     }
   }
@@ -57,5 +48,6 @@
   &__icon {
     width: 17px;
     height: 13px;
+    object-fit: contain;
   }
 }

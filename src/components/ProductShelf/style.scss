@@ -2,20 +2,16 @@
 @use "../../styles/mixins" as *;
 
 .product-shelf {
-  width: 100%;
-  max-width: 1364px;
-  margin: 84px auto;
-  display: flex;
+  @include container; // 1364px default
+  @include flex-center;
   flex-direction: column;
-  align-items: center;
+  margin: 84px auto;
 
   &__title {
-    @include typography(30px, 700, #3442b5);
+    @include typography(30px, 700, $color-brand-blue);
+    @include flex-center;
     width: 100%;
     max-width: 1138px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 24px;
     text-transform: uppercase;
 
@@ -24,28 +20,26 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: #dedede;
+      background: $color-border-divider;
       margin: 0 20px;
     }
   }
 
   &__view-all {
-    @include typography(15px, 700, #3f3f40);
+    @include typography(15px, 700, $color-text-main);
     text-decoration: none;
     margin-bottom: 20px;
-    transition: color 0.2s;
+    transition: color $transition-default;
 
     &:hover {
-      color: #3442b5;
+      color: $color-brand-blue;
     }
   }
 
   &__carousel {
     position: relative;
     width: 1270px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     min-height: 500px;
   }
 
@@ -61,25 +55,24 @@
     }
   }
 
+  // Estilo dos botões de navegação (Reaproveitando lógica global)
   .nav-button {
+    @include flex-center;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     border: none;
-    background: #ffffff;
+    background: $color-white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     position: absolute;
     z-index: 10;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
+    transition: all $transition-default;
 
     &::after {
-      @include typography(24px, 400, #3f3f40);
+      @include typography(24px, 400, $color-text-main);
       line-height: 1;
     }
 
@@ -107,7 +100,7 @@
     &:hover:not(.disabled) {
       background-color: #f9f9f9;
       &::after {
-        color: #3442b5;
+        color: $color-brand-blue;
       }
     }
   }
