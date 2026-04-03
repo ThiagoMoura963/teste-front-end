@@ -74,6 +74,14 @@ export const Footer = () => {
           ))}
         </div>
       </div>
+
+      <div className="footer__copyright">
+        <div className="footer__copyright-container">
+          <p className="footer__copyright-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };
