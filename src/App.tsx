@@ -4,8 +4,9 @@ import { MainBanner } from "./components/MainBanner";
 import { CategoryList } from "./components/CategoryList";
 import { ProductGrid } from "./components/ProductGrid";
 import { PartnerBanners } from "./components/PartnerBanners";
-import "./components/ProductCard/style.scss";
 import { BrandCarousel } from "./components/BrandCarousel";
+import { Newsletter } from "./components/Newsletter";
+import "./components/ProductCard/style.scss";
 
 function App() {
   return (
@@ -16,9 +17,12 @@ function App() {
       <main>
         <MainBanner />
         <CategoryList />
+
         <ProductGrid />
         <PartnerBanners />
+
         <BrandCarousel />
+        <Newsletter />
       </main>
     </div>
   );
