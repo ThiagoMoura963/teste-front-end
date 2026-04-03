@@ -2,36 +2,35 @@
 @use "../../styles/mixins" as *;
 
 .product-tabs {
-  width: 100%;
-  max-width: 1280px;
+  @include container(1280px);
   height: 40px;
   display: flex;
-  border: 1px solid #dedede;
-  background: #fff;
+  background: $color-white;
+  border: 1px solid $color-border-divider;
   margin-bottom: 24px;
 
   &__item {
     flex: 1;
     height: 100%;
-    background: #ffffff;
+    background: $color-white;
     border: none;
-    border-right: 1px solid #dedede;
+    border-right: 1px solid $color-border-divider;
     cursor: pointer;
     @include typography(14px, 400, #3b3b3b);
     text-transform: uppercase;
-    transition: all 0.2s ease;
+    transition: all $transition-default;
 
     &:last-child {
       border-right: none;
     }
 
     &.active {
-      color: #3442b5;
+      color: $color-brand-blue;
       font-weight: 700;
     }
 
     &:hover:not(.active) {
-      background-color: #f5f5f5;
+      background-color: $color-background;
     }
   }
 }

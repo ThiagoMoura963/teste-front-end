@@ -5,12 +5,9 @@
   width: 304px;
   height: 500px;
   padding: 17px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background: #fff;
+  background: $color-white;
   border-radius: 10px;
-  box-shadow: 0px 3px 19px 0px #00000038;
+  box-shadow: 0px 3px 19px 0px rgba(0, 0, 0, 0.22);
 
   display: flex;
   flex-direction: column;
@@ -24,9 +21,10 @@
   }
 
   &__name {
-    @include typography(15px, 300, #3f3f40);
+    @include typography(15px, 300, $color-text-main);
     margin-bottom: 12px;
     height: 45px;
+    line-height: 1.2;
   }
 
   &__prices {
@@ -36,26 +34,23 @@
   }
 
   &__old-price {
-    @include typography(16px, 400, #808080);
+    @include typography(16px, 400, $color-text-light);
     text-decoration: line-through;
   }
 
   &__current-price {
-    @include typography(20px, 700, #3f3f40);
-  }
-
-  &__installments {
-    @include typography(12px, 400, #3f3f40);
+    @include typography(20px, 700, $color-text-main);
   }
 
   &__shipping,
   &__installments {
-    @include typography(12px, 400, #3442b5);
+    @include typography(12px, 400, $color-brand-blue);
     margin-top: 4px;
   }
 
   &__button {
-    @include button-base(#3442b5, #ffffff);
+    @include button-base($color-brand-blue, $color-white);
     margin-top: auto;
+    font-weight: 700;
   }
 }

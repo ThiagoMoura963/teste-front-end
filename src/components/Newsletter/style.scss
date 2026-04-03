@@ -4,19 +4,13 @@
 .newsletter {
   width: 100%;
   height: 162px;
-  background: #271c47;
-  display: flex;
-  align-items: center;
+  background: $color-deep-purple;
+  @include flex-center;
   margin-top: 80px;
 
   &__container {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include container(1440px, 80px);
+    @include flex-between;
   }
 
   &__content {
@@ -25,16 +19,15 @@
 
   &__title {
     margin: 0;
-    font-family: "Outfix", sans-serif;
-    font-weight: 600;
+    font-family: "Outfit", sans-serif;
     font-size: 32px;
     line-height: 120%;
-    color: #ffffff;
+    color: $color-white;
   }
 
   &__subtitle {
-    margin: 10 0 0 0;
-    @include typography(14px, 300, #ffffff);
+    margin: 10px 0 0 0;
+    @include typography(14px, 300, $color-white);
     line-height: 18px;
     max-width: 515px;
   }
@@ -53,44 +46,41 @@
   &__input {
     width: 233px;
     height: 42px;
-    background: #ffffff;
-    border: 1px solid #e7e7e7;
+    background: $color-white;
+    border: 1px solid $color-border-input;
     border-radius: 8px;
     padding: 12px 24px;
-
-    @include typography(14px, 400, #271c47);
+    @include typography(14px, 400, $color-deep-purple);
 
     &::placeholder {
-      color: #9f9f9f;
+      color: $color-text-muted;
       text-align: left;
+    }
+
+    &:focus {
+      outline: 1px solid $color-brand-yellow;
     }
   }
 
   &__button {
-    width: 157px;
-    height: 42px;
-    background: #f7ca11;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-
-    @include typography(14px, 600, #161615);
+    @include button-base(
+      $bg-color: $color-brand-yellow,
+      $text-color: $color-btn-text-dark,
+      $width: 157px,
+      $height: 42px,
+      $radius: 8px
+    );
+    @include typography(14px, 600, $color-btn-text-dark);
     line-height: 12px;
-    text-transform: uppercase;
-    transition: filter 0.2s ease;
-
-    &:hover {
-      filter: brightness(0.9);
-    }
   }
 
   &__terms {
-    display: flex;
-    align-items: center;
+    @include flex-center;
+    justify-content: flex-start;
     gap: 10px;
 
     label {
-      @include typography(14px, 400, #ffffff);
+      @include typography(14px, 400, $color-white);
       line-height: 150%;
       cursor: pointer;
     }

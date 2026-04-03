@@ -2,49 +2,23 @@
 @use "../../styles/mixins" as *;
 
 .product-grid-section {
-  width: 100%;
-  max-width: 1364px;
+  @include container;
   margin: 84px auto;
   position: relative;
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  align-items: center;
 }
 
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 .product-grid {
   width: 100%;
-  display: flex;
+  @include flex-center;
   flex-direction: column;
-  align-items: center;
 
   &__title {
-    @include typography(30px, 700, #3442b5);
+    @include typography(30px, 700, $color-brand-blue);
+    @include flex-center;
     width: 100%;
     max-width: 1138px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 24px;
     text-transform: uppercase;
 
@@ -53,7 +27,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: #dedede;
+      background: $color-border-divider;
       margin: 0 20px;
     }
   }
@@ -62,42 +36,40 @@
     width: 1280px;
     height: 40px;
     display: flex;
-    border: 1px solid #dedede;
-    background: #fff;
+    border: 1px solid $color-border-divider;
+    background: $color-white;
     margin-bottom: 24px;
   }
 
   &__tab-item {
     flex: 1;
     height: 100%;
-    background: #ffffff;
+    background: $color-white;
     border: none;
-    border-right: 1px solid #dedede;
+    border-right: 1px solid $color-border-divider;
     cursor: pointer;
     @include typography(14px, 400, #3b3b3b);
     text-transform: uppercase;
-    transition: all 0.2s ease;
+    transition: all $transition-default;
 
     &:last-child {
       border-right: none;
     }
 
     &--active {
-      color: #3442b5;
+      color: $color-brand-blue;
       font-weight: 700;
     }
 
     &:hover:not(&--active) {
-      background-color: #f5f5f5;
+      background-color: $color-background;
     }
   }
 
   &__carousel-wrapper {
     position: relative;
     width: 1270px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     min-height: 500px;
   }
 
@@ -114,24 +86,22 @@
   }
 
   &__nav-button {
+    @include flex-center;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     border: none;
-    background: #ffffff;
+    background: $color-white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     position: absolute;
     z-index: 10;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
+    transition: all $transition-default;
 
     &::after {
-      @include typography(24px, 400, #3f3f40);
+      @include typography(24px, 400, $color-text-main);
       line-height: 1;
     }
 
@@ -159,7 +129,7 @@
     &:hover:not(:disabled) {
       background-color: #f9f9f9;
       &::after {
-        color: #3442b5;
+        color: $color-brand-blue;
       }
     }
   }
