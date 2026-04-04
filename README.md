@@ -18,15 +18,21 @@ Este projeto é o resultado do desafio técnico para a vaga de Desenvolvedor Fro
 O projeto foi reestruturado para seguir padrões de escalabilidade e **Clean Code**:
 
 - `src/pages` — Separação da lógica de rotas e telas (ex: Home)
-- `src/components` — Componentes reutilizáveis e independentes
-- `src/assets` — Organização centralizada de ícones e imagens
+- `src/layout` — Componentes estruturais globais (Header, Footer, Navbar)
+- `src/components` — Componentes reutilizáveis e independentes (ProductCard, ProductShelf, etc)
+- `src/assets` — Organização centralizada de ícones e imagens com barrel exports
 - **Encapsulamento** — Cada componente gerencia seu próprio arquivo de estilo `.scss`
 
 ---
 
 ## Como rodar o projeto
 
-Siga os passos abaixo para executar o projeto localmente:
+### Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado em sua máquina:
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior recomendada)
+- [npm](https://www.npmjs.com/) (já incluído com o Node.js) ou [Yarn](https://yarnpkg.com/)
 
 ### 1. Clonar o repositório
 
